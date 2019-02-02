@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { IContact } from '@interfaces/contact';
 import { ISiteInfo } from '@interfaces/siteInfo';
+import { INav } from '@interfaces/nav';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,8 @@ export class ConfigService {
 
   constructor() { }
 
-  get contact(): IContact[] {
-    return [
+  get contact(): Observable<IContact[]> {
+    let contact: IContact[] = [
       {
         title: 'GitHub',
         type: 'url',
@@ -42,11 +44,29 @@ export class ConfigService {
         value: 'https://www.jianshu.com/u/c0d59133d5e3',
       }
     ];
+    return of(contact);
   }
 
-  get siteInfo(): ISiteInfo {
-    return
+  get siteInfo(): Observable<ISiteInfo> {
+    let siteInfo: ISiteInfo = {
+      title: 'tz小海螺',
+      user: {
+        name: 'Tianzhen',
+        signature: '心者，栖神之舍；神者，知识之本；思者，神识之妙用也。',
+        icon: ''
+      }
+    };
+    return of(siteInfo);
   }
-
   
+  get nav(): Observable<INav[]> {
+    let nav: INav[] = [
+      {
+        title: '首页',
+        type: 'inside',
+        link: ''
+      }
+    ];
+    return of(nav);
+  }
 }

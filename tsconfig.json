@@ -17,5 +17,11 @@
       "es2018",
       "dom"
     ]
+  },
+  "paths": {
+    "@app": [ "app" ],
+    "@app/*": [ "app/*" ],
+    "@services": [ "app/services" ],
+    "@services/*": [ "app/services/*" ]
   }
 }

@@ -23,7 +23,9 @@
       "@services": [ "src/app/services" ],
       "@services/*": [ "src/app/services/*" ],
       "@interfaces": [ "src/app/interfaces" ],
-      "@interfaces/*": [ "src/app/interfaces/*" ]
+      "@interfaces/*": [ "src/app/interfaces/*" ],
+      "@data": [ "src/data" ],
+      "@data/*": [ "src/data/*" ]
     }
   }
 }

@@ -65,7 +65,27 @@ export class ConfigService {
         title: '首页',
         type: 'inside',
         link: ''
-      }
+      },
+      {
+        title: '分类',
+        type: 'inside',
+        link: ''
+      },
+      {
+        title: '归档',
+        type: 'inside',
+        link: ''
+      },
+      {
+        title: '标签',
+        type: 'inside',
+        link: ''
+      },
+      {
+        title: '关于',
+        type: 'inside',
+        link: ''
+      },
     ];
     return of(nav);
   }

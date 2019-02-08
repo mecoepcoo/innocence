@@ -8,9 +8,10 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CategoryComponent } from './category/category.component';
 import { TagComponent } from './tag/tag.component';
+import { LayoutComponent } from './layout.component';
 
 @NgModule({
-  declarations: [HeaderComponent, AboutComponent, FooterComponent, SidebarComponent, CategoryComponent, TagComponent],
+  declarations: [HeaderComponent, AboutComponent, FooterComponent, SidebarComponent, CategoryComponent, TagComponent, LayoutComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule

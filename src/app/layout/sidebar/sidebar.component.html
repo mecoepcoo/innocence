@@ -2,26 +2,26 @@
   <section class="sidebar-panel">
     <div class="author">
       <div class="img"></div>
-      <p>Tianzhen</p>
-      <p>心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</p>
+      <p>{{siteInfo.user.name}}</p>
+      <p>{{siteInfo.user.signature}}</p>
     </div>
 
     <nav class="sidebar-nav">
       <div>
         <a routerLink="/archive">
-          <span>1</span>
+          <span>{{countData[2]}}</span>
           <span>文章</span>
         </a>
       </div>
       <div>
-        <a routerLink="/categories">
-          <span>1</span>
+        <a routerLink="/category">
+          <span>{{countData[0]}}</span>
           <span>分类</span>
         </a>
       </div>
       <div>
-        <a routerLink="/tags">
-          <span>1</span>
+        <a routerLink="/tag">
+          <span>{{countData[1]}}</span>
           <span>标签</span>
         </a>
       </div>
@@ -57,7 +57,7 @@
         友情链接
       </div>
       <ul class="links-list">
-        <li class="links-list-item" *ngFor="let friend of friends"><a [href]="friend.url" target="_blank">name</a></li>
+        <li class="links-list-item" *ngFor="let blogroll of blogrolls"><a [href]="blogroll.url" target="_blank">{{blogroll.name}}</a></li>
       </ul>
     </div>
   </section>

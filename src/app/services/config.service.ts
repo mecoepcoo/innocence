@@ -11,7 +11,10 @@ export class ConfigService {
 
   constructor() { }
 
-  get contact(): Observable<IContact[]> {
+  apiUrl = 'http://localhost:3000/';
+  siteUrl = 'http://localhost:4200/';
+
+  /* get contact(): Observable<IContact[]> {
     let contact: IContact[] = [
       {
         title: 'GitHub',
@@ -45,48 +48,48 @@ export class ConfigService {
       }
     ];
     return of(contact);
-  }
+  } */
 
   get siteInfo(): Observable<ISiteInfo> {
     let siteInfo: ISiteInfo = {
-      title: 'tz小海螺',
+      title: '天真小海螺',
       user: {
         name: 'Tianzhen',
         signature: '心者，栖神之舍；神者，知识之本；思者，神识之妙用也。',
-        icon: ''
+        email: 'mecoepcoo@vip.qq.com',
       }
     };
     return of(siteInfo);
   }
   
-  get nav(): Observable<INav[]> {
+  /* get nav(): Observable<INav[]> {
     let nav: INav[] = [
       {
         title: '首页',
         type: 'inside',
-        link: ''
+        link: '/index'
       },
       {
         title: '分类',
         type: 'inside',
-        link: ''
+        link: '/category'
       },
       {
         title: '归档',
         type: 'inside',
-        link: ''
+        link: '/archive'
       },
       {
         title: '标签',
         type: 'inside',
-        link: ''
+        link: '/tag'
       },
       {
         title: '关于',
         type: 'inside',
-        link: ''
+        link: '/about'
       },
     ];
     return of(nav);
-  }
+  } */
 }

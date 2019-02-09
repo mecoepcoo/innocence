@@ -3,6 +3,7 @@ export interface ISiteInfo {
   user: {
     name: string,
     signature: string,
-    icon: string,
+    email?: string,
+    icon?: string,
   },
 };

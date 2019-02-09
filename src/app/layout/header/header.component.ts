@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '@services/config.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
+  title: string;
 
-  constructor() { }
+  constructor(
+    private config: ConfigService,
+  ) { }
 
   ngOnInit() {
+    this.config.siteInfo.subscribe(data => {
+      this.title = data.title;
+    });
   }
 
 }

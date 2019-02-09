@@ -1,4 +1,5 @@
 export interface IBlogroll {
-  title: string,
+  id: number,
+  name: string,
   url: string,
 };

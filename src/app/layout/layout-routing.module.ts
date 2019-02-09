@@ -14,6 +14,7 @@ const routes: Routes = [
     redirectTo: '/index',
     pathMatch: 'full'
   },
+  { path: 'index/:id', component: PostlistComponent },
   { path: 'index', component: PostlistComponent },
   { path: 'post', component: PostComponent },
   { path: 'category', component: CategoryComponent },

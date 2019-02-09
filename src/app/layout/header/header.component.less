@@ -1,0 +1,57 @@
+@import "../../shares/styles/base.less";
+
+.header-inner {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  .sidebar_w();
+  background-color: @bg_black;
+  overflow: hidden;
+  .logo {
+    float: left;
+    font-size: @f_size + 5;
+
+    &-inner {
+      position: relative;
+      left: 0;
+      top: 12px;
+      @a_width: 80px;
+      a {
+        .a(#222, @f_color);
+      }
+    }
+  }
+
+  .main-nav {
+    float: right;
+    list-style: none;
+    &-item {
+      @li_padding: 15px;
+      float: left;
+      padding-left: @li_padding;
+      padding-right: @li_padding;
+      a {
+        display: inline-block;
+        position: relative;
+        .a(@f_color, #222);
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: -5px;
+          left: 0;
+          background: #000;
+          visibility: hidden;
+          .transition(all 0.2s ease-in-out);
+          .transform(scaleX(0));
+        }
+        &:hover::before {
+          visibility: visible;
+          .transform(scaleX(1));
+        }
+      }
+    }
+  }
+}

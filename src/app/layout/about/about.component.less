@@ -1,0 +1,32 @@
+@import "../../shares/styles/base.less";
+
+#about {
+  @f_size: 14px;
+
+  .a(@f_color, @hover_color) {
+    color: @f_color;
+    text-decoration: none;
+    &:hover {
+      color: @hover_color;
+    }
+  }
+
+  display: block;
+  margin-top: 80px;
+  font-family: @font;
+  font-size: @f_size;
+  color: @f_color;
+  text-align: center;
+
+  .about-inner {
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+    p {
+      line-height: 3;
+      a {
+        .a(#b83838, #ff0000);
+      }
+    }
+  }
+}

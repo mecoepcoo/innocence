@@ -3,11 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from '@app/layout/layout.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: '/home',
-  //   pathMatch: 'full'
-  // },
   {
     path: '',
     component: LayoutComponent,
@@ -16,6 +11,10 @@ const routes: Routes = [
       // { path: 'index', component: CategoryComponent },
       // { path: 'category', loadChildren: './layout/layout.module#LayoutModule' },
     ]
+  },
+  {
+    path: '**',
+    redirectTo: '',
   }
 ];
 

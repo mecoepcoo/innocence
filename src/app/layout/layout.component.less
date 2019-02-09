@@ -1,0 +1,61 @@
+@import "../shares/styles/base.less";
+
+#header {
+  display: block;
+  background-color: @bg_black;
+  font-family: @font;
+  color: @f_color;
+  font-size: @f_size;
+  text-align: center;
+}
+
+#router-outlet {
+  display: block;
+  padding-bottom: 60px;
+  height: auto;
+  min-height: 100%;
+  .inner-outlet {
+    margin: 0 auto;
+    height: auto;
+    min-height: 100%;
+    .sidebar_w();
+  }
+}
+
+.main {
+  padding-left: @padding_left;
+  height: auto;
+  min-height: 100vh;
+}
+
+#footer {
+  padding-left: @padding_left;
+  display: block;
+  position: relative;
+  left: 0;
+  bottom: 0px;
+  margin-top: -60px;
+  height: 60px;
+  font-size: @f_size - 2;
+  color: #c5c5c5;
+  text-align: center;
+}
+
+#sidebar {
+  @side_w: 320px;
+  @bg_black: #222;
+  @f_color: #aaa;
+  @font: "Microsoft YaHei","Ubuntu", "Sans Regular";
+  @f_size: 14px;
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: @bg_black;
+  width: @side_w;
+  color: @f_color;
+  font-family: @font;
+  font-size: @f_size;
+}

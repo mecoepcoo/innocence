@@ -1,0 +1,107 @@
+@import "../../shares/styles/base.less";
+
+#categories {
+  @f_size: 14px;
+  @h_width: 700px;
+  @nav_w: 150px;
+
+  display: block;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  font-family: @font;
+  font-size: @f_size;
+  color: @f_color;
+  text-align: center;
+
+  .categories-inner {
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+
+    .categories-total {
+      text-align: center;
+    }
+    .categories-wrap {
+      overflow: hidden;
+      .categories-nav {
+        float: left;
+        width: @nav_w;
+        &-list {
+          padding: 0;
+          list-style: none;
+          font-size: @f_size + 1;
+          &-item {
+            margin-top: 25px;
+            a {
+              cursor: pointer;
+              .a(@f_color, #222);
+              span {
+                font-size: @f_size - 1;
+                color: @f_color + #333;
+              }
+            }
+          }
+        }
+      }
+      .categories-content {
+        float: left;
+        min-width: 600px;
+        max-width: 800px;
+        .categories-detail {
+          position: relative;
+          &-title {
+            span {
+              margin-left: 10px;
+              color: @f_color + #333;
+            }
+          }
+          &-item {
+            position: relative;
+            margin-top: 35px;
+            padding-bottom: 15px;
+            border-bottom: 1px dotted #c5c5c5;
+            &-title {
+              font-size: @f_size + 2;
+              span {
+                margin-right: 10px;
+                font-size: @f_size;
+                color: @f_color + #333;
+              }
+              a {
+                .a(@f_color, #222);
+              }
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: -20px;
+              top: 10px;
+              width: 6px;
+              height: 6px;
+              background-color: #bbb;
+              .border-radius(50%);
+              border: 1px solid #fff;
+              .transition(background-color 0.3s ease-in-out)
+            }
+
+            &:hover::before {
+              background-color: #222;
+            }
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: -18px;
+            width: 4px;
+            height: 100%;
+            background-color: #eee;
+            z-index: -1;
+          }
+        }
+      }
+    }
+  }
+}

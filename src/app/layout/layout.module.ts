@@ -9,8 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CategoryComponent } from './category/category.component';
 import { TagComponent } from './tag/tag.component';
-import { PostlistComponent } from '../postlist/postlist.component';
-import { PostComponent } from '../post/post.component';
+import { PostlistComponent } from './postlist/postlist.component';
+import { PostComponent } from './post/post.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 const COMPONENTS = [
   HeaderComponent,
@@ -21,6 +22,7 @@ const COMPONENTS = [
   TagComponent,
   PostlistComponent,
   PostComponent,
+  ArchiveComponent,
 ]
 
 @NgModule({

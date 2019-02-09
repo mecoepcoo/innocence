@@ -9,7 +9,7 @@ const routes: Routes = [
   //   pathMatch: 'full'
   // },
   {
-    path: 'home',
+    path: '',
     component: LayoutComponent,
     children: [
       { path: '', loadChildren: './layout/layout.module#LayoutModule' },

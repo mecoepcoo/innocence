@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
-import { FooterComponent } from './footer/footer.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { CategoryComponent } from './category/category.component';
 import { TagComponent } from './tag/tag.component';
+import { PostlistComponent } from './postlist/postlist.component';
+import { PostComponent } from './post/post.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: '/home',
-  //   pathMatch: 'full'
-  // },
   {
-    path: 'category',
-    component: CategoryComponent,
+    path: '',
+    redirectTo: '/index',
+    pathMatch: 'full'
   },
+  { path: 'index', component: PostlistComponent },
+  { path: 'post', component: PostComponent },
+  { path: 'category', component: CategoryComponent },
+  { path: 'archive', component: ArchiveComponent },
+  { path: 'tag', component: TagComponent },
+  { path: 'about', component: AboutComponent },
 ];
 
 @NgModule({

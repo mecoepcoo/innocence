@@ -9,19 +9,19 @@ import { CategoryComponent } from './category/category.component';
 import { TagComponent } from './tag/tag.component';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: '/home',
+  //   pathMatch: 'full'
+  // },
   {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: layout
+    path: 'category',
+    component: CategoryComponent,
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class LayoutRoutingModule { }

@@ -20,6 +20,18 @@ export class PostService {
     );
   }
 
+  getListForCategory(page = 1, size = 10, categoryId) {
+    return this.http.get(`${this.api}posts?page=${page}&size=${size}&type=category&id=${categoryId}`).pipe(
+      map((data: any) => data.data),
+    );
+  }
+
+  getListForTag(page = 1, size = 10, tagId) {
+    return this.http.get(`${this.api}posts?page=${page}&size=${size}&type=tag&id=${tagId}`).pipe(
+      map((data: any) => data.data),
+    );
+  }
+
   count() {
     return this.http.get(`${this.api}posts/count`).pipe(
       map((data: any) => data.data),

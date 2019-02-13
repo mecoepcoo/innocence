@@ -37,12 +37,6 @@ export class PostlistComponent implements OnInit {
       let posts = data.rows;
       this.pageConfig.totalNum = data.count;
       this.pageConfig.totalPage = Math.ceil(this.pageConfig.totalNum / this.pageConfig.pageSize);
-
-      // posts = posts.map(post => {
-        // post.date = {
-          // day: 
-        // }
-      // });
       this.posts = posts;
     });
   }

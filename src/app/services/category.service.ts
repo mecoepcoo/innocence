@@ -16,7 +16,7 @@ export class CategoryService {
 
   getList() {
     return this.http.get(`${this.api}categories`).pipe(
-      map((data: any) => data.data.rows),
+      map((data: any) => data.data),
     );
   }
 

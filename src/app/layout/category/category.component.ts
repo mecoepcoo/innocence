@@ -4,6 +4,8 @@ import { CategoryService } from '@services/category.service';
 import { ICategory } from '@interfaces/category';
 import { PostService } from '@services/post.service';
 import { IPost } from '@interfaces/post';
+import { forkJoin } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-category',
@@ -20,7 +22,7 @@ export class CategoryComponent implements OnInit {
     totalNum: 0,
     currentPage: 1,
     totalPage: 0,
-    pageSize: 10,
+    pageSize: 2,
   };
 
   constructor(
@@ -32,19 +34,36 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories().subscribe(data => {
-      console.log(data);
       this.categoriesCount = data.count;
       this.categories = data.rows;
-      this.currentCategory = this.categories[0];
-      this.getPosts(this.currentCategory.id).subscribe(data => {
-        this.posts = data.rows;
-      });
+      if (!this.currentCategory) this.currentCategory = this.categories[0];
+      let params$ = this.activatedRoute.params;
+      let queries$ = this.activatedRoute.queryParams;
+      params$.subscribe(param => {
+          param.id ? this.pageConfig.currentPage = +param.id : this.pageConfig.currentPage = 1;
+          queries$.subscribe(query => {
+            let categoryId = query.cid;
+            for (let i = 0, len = this.categories.length; i < len; i++) {
+              if (this.categories[i].id == categoryId) {
+                this.currentCategory = this.categories[i];
+                break;
+              }
+            }
+            this.getPosts(this.currentCategory.id);
+          })
+        });
     })
   }
 
   getPageData(currentPage) {
-    this.router.navigate(['/category', currentPage]);
-    // this.getPosts(this.pageConfig.currentPage, this.pageConfig.pageSize);
+    this.router.navigate(
+      ['/category', currentPage],
+      {
+        queryParams: {cid: this.currentCategory.id},
+        skipLocationChange: true,
+      }
+    );
+    this.getPosts(this.currentCategory.id);
   }
 
   getCategories() {
@@ -52,6 +71,16 @@ export class CategoryComponent implements OnInit {
   }
 
   getPosts(categoryId) {
-    return this._postSrv.getListForCategory(this.pageConfig.currentPage, this.pageConfig.pageSize, categoryId);
+    return this._postSrv.getListForCategory(this.pageConfig.currentPage, this.pageConfig.pageSize, categoryId).subscribe(data => {
+      this.posts = data.rows;
+      this.pageConfig.totalNum = data.count;
+      this.pageConfig.totalPage = Math.ceil(this.pageConfig.totalNum / this.pageConfig.pageSize);
+      console.log(this.pageConfig)
+    });
+  }
+
+  setCurrentCategory(category: ICategory) {
+    this.currentCategory = category;
+    this.getPosts(category.id);
   }
 }

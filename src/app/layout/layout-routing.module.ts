@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'index/:id', component: PostlistComponent },
   { path: 'index', component: PostlistComponent },
   { path: 'post', component: PostComponent },
+  { path: 'category/:id', component: CategoryComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'archive', component: ArchiveComponent },
   { path: 'tag', component: TagComponent },

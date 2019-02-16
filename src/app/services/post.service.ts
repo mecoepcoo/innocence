@@ -32,6 +32,12 @@ export class PostService {
     );
   }
 
+  getListForArchive(page = 1, size = 20) {
+    return this.http.get(`${this.api}posts?page=${page}&size=${size}&type=time`).pipe(
+      map((data: any) => data.data),
+    );
+  }
+
   count() {
     return this.http.get(`${this.api}posts/count`).pipe(
       map((data: any) => data.data),

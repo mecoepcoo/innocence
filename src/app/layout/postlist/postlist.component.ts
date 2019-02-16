@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { PostService } from '@services/post.service';
 import { IPost } from '@interfaces/post';
 
@@ -19,17 +18,11 @@ export class PostlistComponent implements OnInit {
   posts: IPost[];
 
   constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
     private _postSrv: PostService,
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.params
-      .subscribe((param) => {
-        param.id ? this.pageConfig.currentPage = +param.id : this.pageConfig.currentPage = 1;
-        this.getPosts(this.pageConfig.currentPage, this.pageConfig.pageSize);
-      });
+    this.getPosts(this.pageConfig.currentPage, this.pageConfig.pageSize);
   }
 
   getPosts(currentPage, pageSize) {
@@ -41,8 +34,7 @@ export class PostlistComponent implements OnInit {
     });
   }
 
-  getPageData(currentPage) {
-    this.router.navigate(['/index', currentPage]);
+  getPageData() {
     this.getPosts(this.pageConfig.currentPage, this.pageConfig.pageSize);
   }
 }

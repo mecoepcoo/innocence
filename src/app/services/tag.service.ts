@@ -16,7 +16,7 @@ export class TagService {
 
   getList() {
     return this.http.get(`${this.api}tags`).pipe(
-      map((data: any) => data.data.rows),
+      map((data: any) => data.data),
     );
   }
 

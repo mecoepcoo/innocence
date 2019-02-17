@@ -14,15 +14,12 @@ const routes: Routes = [
     redirectTo: '/index',
     pathMatch: 'full'
   },
-  { path: 'index/:page', component: PostlistComponent },
   { path: 'index', component: PostlistComponent },
   { path: 'post', component: PostComponent },
-  { path: 'category/:page', component: CategoryComponent },
-  { path: 'category', component: CategoryComponent },
-  { path: 'archive/:page', component: ArchiveComponent },
-  { path: 'archive', component: ArchiveComponent },
-  { path: 'tag', component: TagComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'category', component: CategoryComponent, data: {title: '分类'} },
+  { path: 'archive', component: ArchiveComponent, data: {title: '归档'} },
+  { path: 'tag', component: TagComponent, data: {title: '标签'} },
+  { path: 'about', component: AboutComponent, data: {title: '关于'} },
 ];
 
 @NgModule({

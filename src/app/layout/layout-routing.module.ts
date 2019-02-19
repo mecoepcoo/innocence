@@ -15,6 +15,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'index', component: PostlistComponent },
+  { path: 'post/:id', component: PostComponent },
   { path: 'post', component: PostComponent },
   { path: 'category', component: CategoryComponent, data: {title: '分类'} },
   { path: 'archive', component: ArchiveComponent, data: {title: '归档'} },

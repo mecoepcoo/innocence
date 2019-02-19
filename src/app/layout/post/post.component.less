@@ -1,0 +1,98 @@
+@import "../../shares/styles/base.less";
+
+#post {
+  @f_size: 14px;
+
+  display: block;
+  margin-top: 80px;
+  font-family: @font;
+  font-size: @f_size;
+  color: @f_color;
+  text-align: center;
+
+  .post-inner {
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+
+    .content {
+      .posts {
+        &-head {
+          text-align: center;
+          &-title {
+            a {
+              display: inline-block;
+              position: relative;
+              .a(@f_color, #222);
+              &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background: #000;
+                visibility: hidden;
+                .transition(all 0.2s ease-in-out);
+                .transform(scaleX(0));
+              }
+              &:hover::before {
+                visibility: visible;
+                .transform(scaleX(1));
+              }
+            }
+          }
+          &-meta {
+            @meta_padding: 20px;
+            &-date {
+              padding-right: @meta_padding;
+              span {
+                margin-left: 10px;
+                color: #222;
+              }
+            }
+            &-category {
+              padding-right: @meta_padding;
+              a {
+                margin-left: @meta_padding - 10;
+                border-bottom: 1px solid #ccc;
+                .a(#222, @f_color);
+              }
+            }
+            &-tag {
+              padding-right: @meta_padding;
+              a {
+                margin-left: @meta_padding - 10;
+                border-bottom: 1px solid #ccc;
+                .a(#222, @f_color);
+              }
+            }
+          }
+        }
+
+        &-body {
+          margin-top: 36px;
+          p {
+            text-align: justify;
+            line-height: 2;
+          }
+          &-more {
+            margin-top: 50px;
+            overflow: hidden;
+            .btn-a {
+              display: inline-block;
+              position: relative;
+              .a(@f_color, #222);
+            }
+            .pre-post {
+              float: left;
+            }
+            .next-post {
+              float: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}

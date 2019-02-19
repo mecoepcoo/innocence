@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { PostService } from '@services/post.service';
+import { IPost } from '@interfaces/post';
 
 @Component({
   selector: 'app-post',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post.component.less']
 })
 export class PostComponent implements OnInit {
+  post: IPost;
 
-  constructor() { }
+  constructor(
+    private _postSrv: PostService,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => this.getPost(params.get('id')))
+    ).subscribe();
   }
 
+  getPost(id) {
+    return this._postSrv.getPost(id);
+  }
 }

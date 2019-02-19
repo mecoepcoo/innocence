@@ -2,18 +2,8 @@
 
 #post-main {
   @f_color: #555;
-  @font: "Microsoft YaHei","Ubuntu", "Sans Regular";
   @f_size: 14px;
-  @h_width: 700px;
   @bg_color: #222;
-
-  .a(@f_color, @hover_color) {
-    color: @f_color;
-    text-decoration: none;
-    &:hover {
-      color: @hover_color;
-    }
-  }
 
   display: block;
   margin-top: 80px;
@@ -25,7 +15,6 @@
   .post-main-inner {
     position: relative;
     margin: 0 auto;
-    width: @h_width;
     text-align: left;
 
     .content {

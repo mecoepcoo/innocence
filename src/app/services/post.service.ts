@@ -20,6 +20,12 @@ export class PostService {
     );
   }
 
+  getPost(id) {
+    return this.http.get(`${this.api}posts/${id}`).pipe(
+      map((data:any) => data.data),
+    );
+  }
+
   getListForCategory(page = 1, size = 10, categoryId) {
     return this.http.get(`${this.api}posts?page=${page}&size=${size}&type=category&id=${categoryId}`).pipe(
       map((data: any) => data.data),

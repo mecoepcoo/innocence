@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import { PostService } from '@services/post.service';
 import { IPost } from '@interfaces/post';
 
@@ -25,6 +25,10 @@ export class PostComponent implements OnInit {
   }
 
   getPost(id) {
-    return this._postSrv.getPost(id);
+    return this._postSrv.getPost(id).pipe(map((data) => {
+      console.log(data);
+      let post = data;
+      this.post = post;
+    }));
   }
 }

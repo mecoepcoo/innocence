@@ -4,16 +4,16 @@
       <div class="content-wrap">
         <div class="posts">
           <div class="posts-head">
-            <h1 class="posts-head-title"><a>{{ post.title }}</a></h1>
+            <h1 class="posts-head-title"><a>{{ post?.title }}</a></h1>
             <div class="posts-head-meta">
-              <span class="posts-head-meta-date">{{ post.author }} 发表于<span>{{ post.date }}</span></span>
-              <span class="posts-head-meta-category">分类于<a [href]="'#/categories?id='+post.category.id+'&cname='+post.category.name">{{ post.category.name }}</a></span>
-              <span class="posts-head-meta-tag">标签<a *ngFor="let tag of post.tags">{{ tag.name }}</a></span>
-              <span class="posts-head-meta-read"><span>{{ post.reading }}</span>次阅读</span>
+              <span class="posts-head-meta-date">{{ post?.author }} 发表于<span>{{ post?.created_at | date:'yyyy-MM-dd' }}</span></span>
+              <span class="posts-head-meta-category">分类于<a [routerLink]="['/category', post?.category?.id || 0]">{{ post?.category?.name }}</a></span>
+              <span class="posts-head-meta-tag">标签<a *ngFor="let tag of post?.tags">{{ tag.name }}</a></span>
+              <span class="posts-head-meta-read"><span>{{ post?.read_count }}</span>次阅读</span>
             </div>
           </div>
           <div class="posts-body">
-            <p [innerHTML]="post.content" class="easy-markdown"></p>
+            <p [innerHTML]="post?.content" class="easy-markdown"></p>
             <!-- <div class="posts-body-more">
               <a routerLink="/home/post/{{neighbors.prevPost.id}}" class="btn-a pre-post" *ngIf="neighbors.prevPost.title">&lt;&lt;&nbsp;{{ neighbors.prevPost.title }}</a>
               <a routerLink="/home/post/{{neighbors.nextPost.id}}" class="btn-a next-post" *ngIf="neighbors.nextPost.title">{{ neighbors.nextPost.title }}&nbsp;&gt;&gt;</a>

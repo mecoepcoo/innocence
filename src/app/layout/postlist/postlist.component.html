@@ -15,7 +15,7 @@
           <div class="posts-head">
             <h1 class="posts-head-title"><a [routerLink]="['/post', post.id]">{{ post.title }}</a></h1>
             <div class="posts-head-meta">
-              <span class="posts-head-meta-category">分类于<a [href]="'#/categories?id='+post.category._id+'&cname='+post.category.category">{{ post.category.name }}</a></span>
+              <span class="posts-head-meta-category">分类于<a [routerLink]="['/category', post.category.id]">{{ post.category.name }}</a></span>
               <span class="posts-head-meta-tag">标签<a *ngFor="let tag of post.tags">{{ tag.name }}</a></span>
               <span class="posts-head-meta-read"><span>{{ post.read_count }}</span>次阅读</span>
             </div>

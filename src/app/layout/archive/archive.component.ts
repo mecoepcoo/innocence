@@ -14,7 +14,7 @@ export class ArchiveComponent implements OnInit {
     totalNum: 0,
     currentPage: 1,
     totalPage: 0,
-    pageSize: 2,
+    pageSize: 10,
   };
 
   constructor(

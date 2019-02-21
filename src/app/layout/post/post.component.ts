@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap, map } from 'rxjs/operators';
+import * as marked from 'marked';
 import { PostService } from '@services/post.service';
 import { IPost } from '@interfaces/post';
 
@@ -22,12 +23,14 @@ export class PostComponent implements OnInit {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.getPost(params.get('id')))
     ).subscribe();
+    console.log(marked)
   }
 
   getPost(id) {
     return this._postSrv.getPost(id).pipe(map((data) => {
       console.log(data);
       let post = data;
+      console.log(marked(post.post_content));
       this.post = post;
     }));
   }

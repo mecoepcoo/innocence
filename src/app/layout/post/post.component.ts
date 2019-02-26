@@ -8,7 +8,10 @@ import { IPost } from '@interfaces/post';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.less']
+  styleUrls: [
+    './post.component.less',
+    './markdown-style.less'
+  ]
 })
 export class PostComponent implements OnInit {
   post: IPost;
@@ -28,7 +31,9 @@ export class PostComponent implements OnInit {
   getPost(id) {
     return this._postSrv.getPost(id).pipe(map((data) => {
       let post = data;
+      let content = marked(post.post_content);
       console.log(marked(post.post_content));
+      post.post_content = content;
       this.post = post;
     }));
   }

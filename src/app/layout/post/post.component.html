@@ -9,7 +9,7 @@
               <span class="posts-head-meta-date">{{ post?.author }} 发表于<span>{{ post?.created_at | date:'yyyy-MM-dd' }}</span></span>
               <span class="posts-head-meta-category">分类于<a [routerLink]="['/category', post?.category?.id || 0]">{{ post?.category?.name }}</a></span>
               <span class="posts-head-meta-tag">标签<a *ngFor="let tag of post?.tags">{{ tag.name }}</a></span>
-              <span class="posts-head-meta-read"><span>{{ post?.read_count }}</span>次阅读</span>
+              <span class="posts-head-meta-read"><span>{{ post?.read_count + 1 }}</span>次阅读</span>
             </div>
           </div>
           <div class="posts-body">

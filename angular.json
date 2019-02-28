@@ -23,8 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/app/shares/styles/markdown-style.css"
+              "src/styles.css"
             ],
             "scripts": []
           },

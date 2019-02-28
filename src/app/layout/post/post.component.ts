@@ -8,7 +8,9 @@ import { IPost } from '@interfaces/post';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.less']
+  styleUrls: [
+    './post.component.less',
+  ]
 })
 export class PostComponent implements OnInit {
   post: IPost;

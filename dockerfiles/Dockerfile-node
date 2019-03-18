@@ -1,0 +1,14 @@
+FROM node:10.15.3-alpine
+
+LABEL maintainer="Tianzhen <mecoepcoo@vip.qq.com>"
+
+# 指定npm全局目录
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+ENV PATH=$PATH:/home/node/.npm-global/bin
+
+# 复制文件，也可以用ADD
+COPY . /w/public
+# 后续 RUN CMD ENTRYPOINT 指令工作目录
+WORKDIR /w/
+
+CMD ["/bin/bash"]

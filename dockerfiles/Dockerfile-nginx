@@ -1,0 +1,9 @@
+FROM nginx:1.14-alpine
+
+LABEL maintainer="Tianzhen <mecoepcoo@vip.qq.com>"
+
+ADD ./sys_cfg /w/sys_cfg
+
+# 将预生成的配置文件 link 到指定目录
+RUN ln -sf /w/sys_cfg/nginx-conf/nginx.conf /etc/nginx/nginx.conf \
+	&& ln -sf /w/sys_cfg/nginx-conf/conf.d/default.conf /etc/nginx/conf.d/default.conf

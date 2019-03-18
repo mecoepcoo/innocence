@@ -7,11 +7,10 @@ build-node: package.json
 	# docker build -tag localhost/innocence:innocence -f dockerfiles/Dockerfile-node .
 
 build-nginx: sys_cfg/nginx-conf/nginx.conf sys_cfg/nginx-conf/conf.d/default.conf dockerfiles/Dockerfile-nginx
-	docker build -tag localhost/nginx:innocence-nginx -f dockerfiles/Dockerfile-nginx .
+	docker build --tag localhost/nginx:innocence-nginx -f dockerfiles/Dockerfile-nginx .
 
 push-image:
-	docker push localhost/innocence:innocence
-	docker push localhost/nginx:nginx
+	# docker push localhost/nginx:nginx
 
 # deploy:
 	

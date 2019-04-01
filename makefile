@@ -10,7 +10,7 @@ build-nginx: sys_cfg/nginx-conf/nginx.conf sys_cfg/nginx-conf/conf.d/default.con
 	docker build --tag localhost/nginx:innocence-nginx -f dockerfiles/Dockerfile-nginx .
 
 push-image:
-	# docker push localhost/nginx:nginx
+	docker push localhost/nginx:innocence-nginx
 
 # deploy:
 	
